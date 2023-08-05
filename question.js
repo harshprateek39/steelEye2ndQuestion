@@ -5,9 +5,9 @@
   // because if there is a repeating word then it should not be marked twice,
   // NOTE : user should enter words in serial order for my function to properly worked because it works also for repeating element,
   
-  let modifiedWord;
+  
     function highlightHTMLContent(htmlContent, plainText, plainTextPositions) {
-      modifiedWord=htmlContent;
+      let modifiedWord=htmlContent;
         const highlightedContent = [];
         const  strts=[0];// used array because array is passed as reference and i can change its value from different function
         for (const position of plainTextPositions) {
@@ -23,8 +23,7 @@
 
     const position = originalWord.indexOf(partToReplace,strts[0]); 
     strts[0]=strts[0]+position+13+partToReplace.length;
-    console.log("position",position);
-    console.log( "strt",strts[0]);
+    
 
     if (position !== -1) {
       const prefix = originalWord.slice(0, position);
@@ -49,5 +48,5 @@
 
     const html="<p><span>Hi David<br><br>Energix: Energix Closes $520 Million Financing and Tax Equity Deal to Fund New Solar Projects<br><br>Summary: Two deals with Morgan Stanley Renewables Inc. and Santander CIB will help finance the";
     const plaintxt="Hi David Energix: Energix Closes $520 Million Financing and Tax Equity Deal to Fund New Solar Projects Summary: Two deals with Morgan Stanley Renewables Inc. and Santander CIB will help finance the"
-      console.log(highlightHTMLContent(html,plaintxt,a)
+      console.log( "marked HTML--", highlightHTMLContent(html,plaintxt,a)
       );
